@@ -30,7 +30,7 @@ public class ClaseControlador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-
+		// Se almacenan obtenidos del archivo jsp en nuevas variables
 		 String p00 = request.getParameter("p00");
 		 String p01 = request.getParameter("p01");
 		 String p02 = request.getParameter("p02");
@@ -40,7 +40,8 @@ public class ClaseControlador extends HttpServlet {
 		 String p20 = request.getParameter("p20");
 		 String p21 = request.getParameter("p21");
 		 String p22 = request.getParameter("p22");
-		 
+		 /* Se guardan los datos en la clase CuadradoMagico
+		 en su posicion especifica*/
 		 cm.guardarDato(p00,0,0);
 		 cm.guardarDato(p01,0,1);
 		 cm.guardarDato(p02,0,2);
@@ -50,7 +51,7 @@ public class ClaseControlador extends HttpServlet {
 		 cm.guardarDato(p20,2,0);
 		 cm.guardarDato(p21,2,1);
 		 cm.guardarDato(p22,2,2);
-		 
+		 // Se imprime un documento html con la respuesta
 		 out.println("<html>");
 		 out.println("<head>");
 		 out.println("</head>");
@@ -74,6 +75,7 @@ public class ClaseControlador extends HttpServlet {
 		 out.println(" | " + p21 + " |");
 		 out.println(" | " + p22 + " |");
 		 out.println("<br>");
+		 /* Se llama al metodo comprobarCM el cual retorna un mensaje (ver metodo)*/
 		 out.println("<strong>" + cm.comprobarCM() + "</strong>");
 		 out.println("<br>");
 		 out.println("</body>");
